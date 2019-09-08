@@ -2,7 +2,7 @@
 
 namespace ReferenceIntegration
 {
-    public partial class Region : Entity
+    public partial class Region
     {
         public string Code { get; set; }
 

@@ -22,16 +22,10 @@ namespace ReferenceIntegration
             //If the id is not found in cache, reload cache
             //If still not found, log error using ILogger
 
-            if (!regionDictionary.TryGetValue(id, out _))
+            if (!regionDictionary.TryGetValue(id, out Region region))
             {
-                PopulateRegion();
-                if (!regionDictionary.TryGetValue(id, out Region region))
-                {
-
-                }
+                throw new Exception("Not Found");
             }
-
-
 
             return region;
         }
@@ -48,7 +42,6 @@ namespace ReferenceIntegration
             //Sample data hard coded
             //Have to implement caching here?
             
-            CachedRepositoryDecorator cache = new CachedRepositoryDecorator(this);
             Region r1 = new Region { Code = "1", Description = "Country1" };
             Region r2 = new Region { Code = "2", Description = "Country2" };
             Region r3 = new Region { Code = "3", Description = "Country3" };

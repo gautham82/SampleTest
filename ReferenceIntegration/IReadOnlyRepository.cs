@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ReferenceIntegration
 {
-    public interface IReadOnlyRepository<T> where T: Entity
+    public interface IReadOnlyRepository<T>
     {
         T Find(string id);
 

@@ -7,17 +7,15 @@ namespace ReferenceIntegration
 {
     public class CachedRepositoryDecorator
     {
-        private readonly IReadOnlyRepository<Entity> _repository;
         private readonly IMemoryCache _cache;
-        private MemoryCacheOptions cacheOptions;
-        private const string MyModelCacheKey = "Regions";
+        private MemoryCacheEntryOptions cacheOptions;
         
         public CachedRepositoryDecorator(IReadOnlyRepository<Entity> repository)
         {
-            _repository = repository;
-            cacheOptions = new MemoryCacheOptions();
+            cacheOptions = new MemoryCacheEntryOptions();
             cacheOptions.SetAbsoluteExpiration(relative: TimeSpan.FromSeconds(120));
-            _cache = new MemoryCache(cacheOptions);
+
+            _cache = new MemoryCache(new MemoryCacheOptions());
 
             // 5 second cache
            // cacheOptions = 
@@ -34,11 +32,6 @@ namespace ReferenceIntegration
             return null;
         }
 
-        public IEnumerable<Entity> ListAll()
-        {
-            //is this correct?
 
-            return _repository.ListAll();
-        }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ReferenceIntegration
 {
-    public partial class Coverage : Entity
+    public partial class Coverage
     {
         public string Id { get; set; }
 

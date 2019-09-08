@@ -11,9 +11,7 @@ namespace ReferenceIntegration.UnitTest
         public void FindRegionUnitTests()
         {
             var finder = new RegionRepository();
-
-            CachedRepositoryDecorator cache(finder, 
-                 
+                             
             Region region1 = finder.Find("1");
             Region region2 = finder.Find("2");
             Region region3 = finder.Find("3");

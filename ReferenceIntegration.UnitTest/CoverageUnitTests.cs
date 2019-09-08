@@ -15,13 +15,13 @@ namespace ReferenceIntegration.UnitTest
             Coverage coverage3 = finder.Find("3");
 
             Assert.True(coverage1 != null);
-            Assert.True(coverage1.Code == "1");
+            Assert.True(coverage1.Id == "1");
 
             Assert.True(coverage2 != null);
-            Assert.True(coverage2.Code == "2");
+            Assert.True(coverage2.Id == "2");
 
             Assert.True(coverage3 != null);
-            Assert.True(coverage3.Code == "3");
+            Assert.True(coverage3.Id == "3");
         }
     }
 }
